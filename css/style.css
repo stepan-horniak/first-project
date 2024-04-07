@@ -29,7 +29,8 @@ body{
     z-index: 50;
 }
 .header__container {
-    padding-top: 76px;
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 .header__top {
 }
@@ -48,21 +49,43 @@ body{
 .header-top__row {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
+@media (max-width: 1092px) {
+    .header__container {
+        padding-top: 30px;
+        padding-bottom: 10px;
+    }
+    .header__row-column{
+        gap: 20px;
+        padding-bottom: 0px;
+    }
+
+}
 @media (max-width: 767px) {
+    .header__container {
+        padding-top: 30px;
+        padding-bottom: 0;
+    }
     .header-top__row {
         padding: 25px 0px;
         justify-content: right;
-        /* gap: 15px; */
+        gap: 20px;
     }
-    .header-top__row div:not(:last-child) {
-        margin-right: 15px;
+    .header__row-column{
+        gap: 0;
+    }
+    .header__container {
+        padding-top: 0;
     }
 }
-.header-top__search>img {
-    width: 25px;
-    height: 25px;
+.header-top__search>input {
+    background-image: url(../img/header/search.svg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
 }
 .header-top__logo {
     position: absolute;
@@ -75,23 +98,21 @@ body{
         left: 0;
         transform: translate(0);
     }
+    .header-top__logo img {
+        max-width: 120px;
+    }
    
 }
 .header-top__account {
-}
-.header-top-account {
+    gap: 22px;
     display: flex;
     align-items: center;
-    /* gap: 22px; */
     color: #1e2832;
     font-size: 18px;
 }
-@media (max-width: 767px) {
-  
-    .header-top-account {
-        /* gap: 15px; */
-    }
+.header-top-account {
 }
+
 .header-top-account__account {
 }
 .header-top-account__account a::before,
@@ -101,30 +122,18 @@ body{
     width: 25px;
     height: 25px;
     vertical-align: sub;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 .header-top-account__shoping a::before {
     background-image: url(../img/header/icon-shopping.svg);
 }
 .header-top-account__shoping {
 }
-@media (max-width: 767px) {
-    .header-top-account__shoping a {
-        display: none;
-    }
-    .header-top-account__account a {
-        display: none;
-    }
-    .header-top__logo img {
-        max-width: 150px;
-    }
-}
 .header__border-line{
 width: 100%;
 height: 2px;
 background-color: #c1c3c3;
 }
-
 .header-nav {
 }
 .header-nav__list {
@@ -134,16 +143,50 @@ background-color: #c1c3c3;
     flex-wrap: wrap;
     align-items: center;
     align-self: center;
-
+    
 }
 @media (max-width: 1200px) {
     .header-nav__list {
-        justify-content: center;
+        justify-content: space-between;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+        gap: 0;
+        
     }
 }
 @media (max-width: 767px) {
-    .header-nav__list {
-        display: none;
+    .header-top-account__account a::before,
+    .header-top-account__shoping a::before {
+        margin-right: 0;
+    }
+    .header__header-nav{
+        height: 0;
+        transform: translateY(-200%);
+        /* transition: all 1s; */
+    }
+    .header-top__account {
+        gap: 20px;
+        color: #1e2832;
+        font-size: 0;
+    }
+    .active.header__header-nav {
+        transform: translateY(0);
+        transition: all 0.7s;
+        height: inherit;
+        display: block;
+    }
+    .active.header__nav-wrapper{
+    position: fixed;
+    top: 0;bottom: 0;left: 0;right: 0;
+    background-color: #c1c3c3;
+    z-index: 100;
+    }
+    .active.header-nav__list {
+        flex-direction: column;
+        font-size: 30px;
+        gap: 20px;
+        padding-top: 80px;
     }
 }
 .header-nav__item {
@@ -180,6 +223,8 @@ background-color: #c1c3c3;
 @media (max-width: 767px) {
     .header__burger {
         display: block;
+        position: relative;
+        z-index: 101;
     }
 
 }
@@ -188,32 +233,25 @@ background-color: #c1c3c3;
     transform: rotate(-45deg);
 }
 .active.header-burger .header-burger__border:nth-child(2) {
-    transform: translateX(1000%);
+    transform: translateX(-2000%);
 }
 .active.header-burger .header-burger__border:nth-child(1) {
     top: 50%;
     transform: rotate(45deg);
 }
-.header__wrapper{
-    position: fixed;
-    bottom: 0;
-    background-color: #000000;
-   
-}
-
 /* ================================== */
 
 .top {
 }
 .top__wrapper {
     width: 100%;
-    height: 100vh;
     background-color: #eeecec;
     background-image: url(../img/section-top/flower-pattern.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 0 40%;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,.25);
+    padding-bottom: 80px;
 }
 .top__container {
     padding-top: 225px;
@@ -223,8 +261,11 @@ background-color: #c1c3c3;
     .top__container {
         padding-top: 140px;
     }
-}
-.container {
+    .top__wrapper {
+        height: fit-content;
+        padding-bottom: 20px;
+
+    }
 }
 .top__row {
     display: flex;
@@ -235,21 +276,21 @@ background-color: #c1c3c3;
     .top__row {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 }
 .top__info {
+    padding-top: 74px;
+    max-width: 697px ;
+    padding-right: 15px;
+    margin-bottom: 50px;
 }
 .top-info {
-    padding-top: 74px;
-    max-width: 682px ;
-    padding-right: 15px;
 }
 @media (max-width: 767px) {
-    .top-info {
+    .top__info {
         padding-top: 0px;
-        max-width: 682px ;
         padding-right: 0px;
-        text-align: center;
     }
 }
 .top-info__title {
@@ -262,8 +303,7 @@ background-color: #c1c3c3;
 }
 .top-info__info-text {
     text-transform: capitalize;
-    /* font-size: 30px; */
-    font-size: calc(16px + 14 * ((100vw - 320px) / (1350 - 320)));
+    font-size: 30px;
     line-height: 55px;
     margin-bottom: 66px;
 }
@@ -276,15 +316,12 @@ background-color: #c1c3c3;
     background-color: #1e2832;
     white-space: nowrap;
 }
-@media (max-width: 767px) {
-    .top-info__button {
-        margin-bottom: 50px;
-    }
-}
+
 .top-info__button>img {
     margin-right: 8px;
 }
 .top__image {
+    max-width: 424px;
     min-width: 366px;
     border-radius: 160px 0;
     box-shadow: inset 0 0 0 2px  hsl(0deg 0% 0% / 25%);
@@ -299,8 +336,10 @@ background-color: #c1c3c3;
 }
 @media (max-width: 767px) {
     .top__image {
-        min-width: 270px;
+        max-width: 270px;
         margin-left: 18px;
+        min-width: 100px;
+
     }
 }
 /* ======================================== */
