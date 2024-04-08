@@ -343,3 +343,29 @@ background-color: #c1c3c3;
     }
 }
 /* ======================================== */
+.brands {
+}
+.brands__container {
+    padding-top: 90px;
+    margin-bottom: 90px;
+}
+.brands__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.brands__wrapper {
+    max-width: 200px;
+}
+.brands__wrapper>img {
+    object-fit: contain;
+}
+@media (max-width: 1050px) {
+    .brands__row {
+        margin: 0 auto;
+        max-width: 767px;
+        justify-content: space-around;
+        gap: 15px;
+    }
+}
