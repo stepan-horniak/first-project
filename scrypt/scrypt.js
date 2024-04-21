@@ -14,3 +14,19 @@ function burger (){
 }
 burger()
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    var blocks = document.querySelectorAll(".animated");
+  
+    window.addEventListener("scroll", function() {
+      blocks.forEach(function(block) {
+        var bounding = block.getBoundingClientRect();
+        if (
+          bounding.top >= 0 &&
+          bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+          block.classList.add("visible");
+        }
+      });
+    });
+  });
